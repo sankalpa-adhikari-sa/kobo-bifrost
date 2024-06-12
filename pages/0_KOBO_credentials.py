@@ -25,7 +25,7 @@ if submit_form :
     if (token =="" or base_url_v1=="" or base_url_v2=="" ):
         st.error("Please provide URL, TOKEN",icon="🚨")
     else: 
-        st.success("success")
+        st.toast(f":green[Successly added KOBO credentials]", icon="✅")
         if 'token' not in st.session_state:
             st.session_state.token = token
         if 'base_url_v1' not in st.session_state:
