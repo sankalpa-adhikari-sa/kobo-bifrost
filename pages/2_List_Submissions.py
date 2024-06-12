@@ -18,9 +18,9 @@ def get_json_data():
 
             elif res.status_code == 202:
         
-                st.toast(f":blue[status code: {res.status_code} /n {res.json()["error"]}]", icon="ℹ️")
+                st.toast(f":blue[status code: {res.status_code} /n {res.json()['error']}]", icon="ℹ️")
             else: 
-                st.toast(f":orange[status code: {res.status_code} /n {res.json()["error"]}]", icon="🚨")
+                st.toast(f":orange[status code: {res.status_code} /n {res.json()['error']}]", icon="🚨")
             return fetched_data_df
 
         except:
@@ -48,6 +48,6 @@ if submit_form:
         st.toast("Added Form Id for listing")
 
     if "token" in st.session_state and "base_url_v2" in st.session_state and "form_listing_id" in st.session_state :
-        st.write(get_json_data())
+        get_json_data()
     else:
         st.info("Please Enter KOBO Credentials for listing the submission", icon="ℹ️")

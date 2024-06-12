@@ -1,4 +1,4 @@
-from pygwalker.api.streamlit import StreamlitRenderer
+
 import requests
 import pandas as pd
 import os
@@ -43,13 +43,13 @@ def make_requests(dataframe,form_id):
                 res = requests.post(url=url, headers=headers, params={"format": "json"} ,json=data)
                 
                 if res.status_code ==201:
-                    # st.toast(f":green[status code: {res.status_code} /n {res.json()["message"]}]", icon="✅")
+                    # st.toast(f":green[status code: {res.status_code} /n {res.json()['message']}]", icon="✅")
                     is_success+=1
                 elif res.status_code == 202:
                     is_success+=1
-                    st.toast(f":blue[status code: {res.status_code} /n {res.json()["error"]}]", icon="ℹ️")
+                    st.toast(f":blue[status code: {res.status_code} /n {(res.json()['error'])} ]", icon="ℹ️")
                 else: 
-                    st.toast(f":orange[status code: {res.status_code} /n {res.json()["error"]}]", icon="🚨")
+                    st.toast(f":orange[status code: {res.status_code} /n {res.json()['error']}]", icon="🚨")
                     lis.append(json_list[i])
             except:
                 st.toast(":orange[something went wrong, Please make sure URL, Token, Form Id are correct and excel file is attached]", icon="🚨")
